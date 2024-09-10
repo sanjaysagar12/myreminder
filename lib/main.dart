@@ -1,20 +1,30 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("MyReminder"),
-        ),
-        body: Center(
-          child: Text("MY REMINDER"),
-        ),
-        floatingActionButton: FloatingActionButton(
-          child: Text("+"),
-          onPressed: null,
+  runApp(MaterialApp(
+    home: Home(),
+  ));
+}
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("MyReminder"),
+      ),
+      body: Center(
+        child: Text(
+          "My Reminder",
+          style: TextStyle(fontFamily: "Handjet"),
         ),
       ),
-    ),
-  );
+      floatingActionButton: FloatingActionButton(
+        child: Text("+"),
+        onPressed: null,
+      ),
+    );
+  }
 }
