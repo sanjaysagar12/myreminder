@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myreminder/ui/components/PinnedReminderCard.dart';
 
 class Component1 extends StatefulWidget {
   const Component1({super.key});
@@ -7,13 +8,15 @@ class Component1 extends StatefulWidget {
   State<Component1> createState() => _Component1State();
 }
 
+List<String> pinnedReminderList = ['1', '2',"3","4","5","6","7","8"];
+
 class _Component1State extends State<Component1> {
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        SizedBox(
+        const SizedBox(
           height: 350,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -49,7 +52,13 @@ class _Component1State extends State<Component1> {
               child: SizedBox(
                 width: 250.0,
                 height: 350.0,
-                child: Center(child: Text("Pined Rem")),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: pinnedReminderList
+                        .map((data) => PinnedReminderCard(data: data))
+                        .toList(),
+                  ),
+                ),
               ),
             ),
           ),
